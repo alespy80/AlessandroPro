@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AlessandroPro — Plataforma Completa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- INTRO -->
+<div id="intro" class="intro">
+  <canvas id="intro-canvas"></canvas>
+  <div class="intro-content">
+    <div class="intro-logo-wrap">
+      <img src="../consultoria-pro/WhatsApp Image 2025-11-08 at 17.30.17.jpeg" alt="Logo" class="intro-logo" onerror="this.style.display='none'"/>
+    </div>
+    <div class="intro-badge">Plataforma Profissional</div>
+    <h1 class="intro-nome">Alessandro<span>Pro</span></h1>
+    <p class="intro-sub">Personal Trainer &bull; Consultoria Online</p>
+    <div class="intro-stats">
+      <div class="istat"><span>8</span>Modulos</div>
+      <div class="istat"><span>100%</span>Integrado</div>
+      <div class="istat"><span>&#9670;</span>Exclusivo</div>
+    </div>
+    <button class="intro-btn" onclick="entrar()">Acessar Plataforma &#8594;</button>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" class="app" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-brand">
+      <img src="../consultoria-pro/WhatsApp Image 2025-11-08 at 17.30.17.jpeg" alt="AF" class="brand-logo" onerror="this.style.display='none'"/>
+      <div class="brand-info">
+        <div class="brand-nome">Alessandro<span>Pro</span></div>
+        <div class="brand-sub">Personal Trainer</div>
+      </div>
+    </div>
+
+    <nav class="nav">
+      <div class="nav-group-label">Principal</div>
+      <button class="nav-item ativo" onclick="irModulo('dashboard',this)">
+        <span class="nav-ico">&#128200;</span><span>Dashboard</span>
+      </button>
+      <button class="nav-item" onclick="irModulo('alunos',this)">
+        <span class="nav-ico">&#128101;</span><span>Alunos & Consultoria</span>
+      </button>
+      <button class="nav-item" onclick="irModulo('financeiro',this)">
+        <span class="nav-ico">&#128176;</span><span>Financeiro</span>
+        <span class="nav-badge" id="badge-fin"></span>
+      </button>
+
+      <div class="nav-group-label">Avaliacao</div>
+      <button class="nav-item" onclick="irModulo('avaliacao-fisica',this)">
+        <span class="nav-ico">&#128207;</span><span>Avaliacao Fisica</span>
+      </button>
+
+      <div class="nav-group-label">Treino & Metodo</div>
+      <button class="nav-item" onclick="irModulo('modo-combate',this)">
+        <span class="nav-ico">&#9876;</span><span>Modo de Combate</span>
+      </button>
+
+      <div class="nav-group-label">Educacao</div>
+      <button class="nav-item" onclick="irModulo('curso-avaliacao',this)">
+        <span class="nav-ico">&#127979;</span><span>Curso Avaliacao Fisica</span>
+      </button>
+      <button class="nav-item" onclick="irModulo('curso-massagem',this)">
+        <span class="nav-ico">&#128200;</span><span>Curso Massagem</span>
+      </button>
+      <button class="nav-item" onclick="irModulo('estudo',this)">
+        <span class="nav-ico">&#128218;</span><span>Estudo Personal</span>
+      </button>
+    </nav>
+
+    <div class="sidebar-footer">
+      <div class="sidebar-user">
+        <div class="su-avatar">AF</div>
+        <div class="su-info">
+          <div class="su-nome">Alessandro Ferreira</div>
+          <div class="su-cargo">Personal Trainer</div>
+        </div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div class="main">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <button class="menu-toggle" onclick="toggleSidebar()">&#9776;</button>
+        <div class="topbar-titulo" id="topbar-titulo">Dashboard</div>
+      </div>
+      <div class="topbar-right">
+        <div class="topbar-data" id="topbar-data"></div>
+        <div class="topbar-notif" id="topbar-notif"></div>
+      </div>
+    </header>
+
+    <!-- CONTEUDO -->
+    <div class="conteudo" id="conteudo">
+
+      <!-- DASHBOARD -->
+      <div class="modulo ativo" id="mod-dashboard">
+        <div class="dash-hero">
+          <div class="dash-hero-text">
+            <div class="dash-saudacao" id="dash-saudacao">Bom dia, Alessandro!</div>
+            <div class="dash-data" id="dash-data-full"></div>
+          </div>
+          <div class="dash-hero-logo">
+            <img src="../consultoria-pro/WhatsApp Image 2025-11-08 at 17.30.17.jpeg" alt="AF" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+
+        <div class="dash-kpis" id="dash-kpis"></div>
+
+        <div class="dash-grid">
+          <div class="dash-card">
+            <div class="dash-card-titulo">&#128680; Acoes Rapidas</div>
+            <div class="acoes-rapidas">
+              <button class="acao-btn" onclick="irModulo('alunos',null)">
+                <span class="acao-ico">&#128101;</span>
+                <span>Alunos</span>
+              </button>
+              <button class="acao-btn" onclick="irModulo('avaliacao-fisica',null)">
+                <span class="acao-ico">&#128207;</span>
+                <span>Avaliacao</span>
+              </button>
+              <button class="acao-btn" onclick="irModulo('financeiro',null)">
+                <span class="acao-ico">&#128176;</span>
+                <span>Financeiro</span>
+              </button>
+              <button class="acao-btn" onclick="irModulo('curso-massagem',null)">
+                <span class="acao-ico">&#128200;</span>
+                <span>Curso</span>
+              </button>
+              <button class="acao-btn" onclick="irModulo('estudo',null)">
+                <span class="acao-ico">&#128218;</span>
+                <span>Estudo</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-titulo">&#128640; Modulos da Plataforma</div>
+            <div class="modulos-lista">
+              <div class="mod-item" onclick="irModulo('alunos',null)">
+                <div class="mod-item-ico" style="background:rgba(14,165,233,.15);color:#38bdf8">&#128101;</div>
+                <div class="mod-item-info"><div class="mod-item-nome">Alunos & Consultoria</div><div class="mod-item-desc">Pipeline, protocolo, pagamentos</div></div>
+                <span class="mod-item-arrow">&#8594;</span>
+              </div>
+              <div class="mod-item" onclick="irModulo('avaliacao-fisica',null)">
+                <div class="mod-item-ico" style="background:rgba(5,150,105,.15);color:#34d399">&#128207;</div>
+                <div class="mod-item-info"><div class="mod-item-nome">Avaliacao Fisica</div><div class="mod-item-desc">Composicao corporal, dobras, macros</div></div>
+                <span class="mod-item-arrow">&#8594;</span>
+              </div>
+              <div class="mod-item" onclick="irModulo('financeiro',null)">
+                <div class="mod-item-ico" style="background:rgba(217,119,6,.15);color:#fbbf24">&#128176;</div>
+                <div class="mod-item-info"><div class="mod-item-nome">Financeiro</div><div class="mod-item-desc">Gestao de alunos e pagamentos</div></div>
+                <span class="mod-item-arrow">&#8594;</span>
+              </div>
+              <div class="mod-item" onclick="irModulo('modo-combate',null)">
+                <div class="mod-item-ico" style="background:rgba(220,38,38,.15);color:#f87171">&#9876;</div>
+                <div class="mod-item-info"><div class="mod-item-nome">Modo de Combate</div><div class="mod-item-desc">Metodo de treino e mentalidade</div></div>
+                <span class="mod-item-arrow">&#8594;</span>
+              </div>
+              <div class="mod-item" onclick="irModulo('curso-massagem',null)">
+                <div class="mod-item-ico" style="background:rgba(124,58,237,.15);color:#a78bfa">&#128200;</div>
+                <div class="mod-item-info"><div class="mod-item-nome">Curso de Massagem</div><div class="mod-item-desc">Tecnicas, anatomia, certificado</div></div>
+                <span class="mod-item-arrow">&#8594;</span>
+              </div>
+              <div class="mod-item" onclick="irModulo('estudo',null)">
+                <div class="mod-item-ico" style="background:rgba(220,38,38,.15);color:#f87171">&#128218;</div>
+                <div class="mod-item-info"><div class="mod-item-nome">Estudo Personal</div><div class="mod-item-desc">Modulos de capacitacao profissional</div></div>
+                <span class="mod-item-arrow">&#8594;</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="dash-card">
+            <div class="dash-card-titulo">&#127979; Cursos Disponiveis</div>
+            <div class="cursos-lista">
+              <div class="curso-item" onclick="irModulo('curso-avaliacao',null)">
+                <div class="curso-ico">&#128207;</div>
+                <div class="curso-info">
+                  <div class="curso-nome">Curso Avaliacao Fisica</div>
+                  <div class="curso-desc">Avaliacao fisica e postural profissional</div>
+                </div>
+                <button class="curso-btn">Acessar</button>
+              </div>
+              <div class="curso-item" onclick="irModulo('curso-massagem',null)">
+                <div class="curso-ico">&#128200;</div>
+                <div class="curso-info">
+                  <div class="curso-nome">Curso de Massagem</div>
+                  <div class="curso-desc">6 modulos &bull; Quizzes &bull; Certificado</div>
+                </div>
+                <button class="curso-btn">Acessar</button>
+              </div>
+              <div class="curso-item" onclick="irModulo('estudo',null)">
+                <div class="curso-ico">&#128218;</div>
+                <div class="curso-info">
+                  <div class="curso-nome">Estudo Personal</div>
+                  <div class="curso-desc">Modulos de capacitacao profissional</div>
+                </div>
+                <button class="curso-btn">Acessar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MODULOS VIA IFRAME - GitHub Pages -->
+      <div class="modulo" id="mod-alunos">
+        <iframe src="https://alespy80.github.io/ConsultoriaPro/" class="mod-iframe" title="Alunos e Consultoria"></iframe>
+      </div>
+      <div class="modulo" id="mod-financeiro">
+        <iframe src="https://alespy80.github.io/Gestao-de-alunos/" class="mod-iframe" title="Financeiro"></iframe>
+      </div>
+      <div class="modulo" id="mod-avaliacao-fisica">
+        <iframe src="https://alespy80.github.io/Avalia-o-F-sica-Completa/" class="mod-iframe" title="Avaliacao Fisica"></iframe>
+      </div>
+      <div class="modulo" id="mod-modo-combate">
+        <iframe src="https://alespy80.github.io/Modo-de-combate/" class="mod-iframe" title="Modo de Combate"></iframe>
+      </div>
+      <div class="modulo" id="mod-curso-avaliacao">
+        <iframe src="https://alespy80.github.io/Avalia-o-F-sica-Completa/" class="mod-iframe" title="Curso Avaliacao Fisica"></iframe>
+      </div>
+      <div class="modulo" id="mod-curso-massagem">
+        <iframe src="https://alespy80.github.io/Curso-de-Massagem/" class="mod-iframe" title="Curso Massagem"></iframe>
+      </div>
+      <div class="modulo" id="mod-estudo">
+        <iframe src="https://alespy80.github.io/ESTUDO-PERSONAL/" class="mod-iframe" title="Estudo Personal"></iframe>
+      </div>
+
+    </div><!-- /conteudo -->
+  </div><!-- /main -->
+</div><!-- /app -->
+
+<script src="app.js"></script>
+</body>
+</html>
